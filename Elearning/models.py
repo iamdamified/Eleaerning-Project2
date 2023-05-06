@@ -63,3 +63,65 @@ class Expert(models.Model):
     
     def __str__(self):
         return self.name
+    
+
+class Testimonial(models.Model):
+    image = models.ImageField(upload_to='testimonial_image')
+    name = models.CharField(max_length=50)
+    profession = models.CharField(max_length=50)
+    testimony = models.TextField()
+
+
+    def __str__(self):
+        return self.name
+    
+
+class Footcontact(models.Model):
+    address = models.CharField(max_length=100)
+    phone = models.IntegerField()
+    email = models.EmailField(max_length=50)
+
+
+    def __str__(self):
+        return str(self.phone)
+    
+
+class Footgallerie(models.Model):
+    name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='footgallery_image')
+
+
+    def __str__(self):
+        return self.name
+    
+
+class Newsletter(models.Model):
+    email = models.EmailField()
+
+    def __str__(self):
+        return str(self.email)
+    
+
+
+
+COURSE_CHOICES = (
+        ("BD", "Backend with Django"),
+        ("FD", "Frontend Design"),
+        ("PD", "Product Design")
+    )
+
+COHORT_CHOICES = (
+        ("BY", "Beginning of Year"),
+        ("MY", "Mid of Year"),
+        ("EY", "End of Year")
+    )
+
+class Register(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    course = models.CharField(choices=COURSE_CHOICES, max_length=10)
+    cohort = models.CharField(choices=COHORT_CHOICES, max_length=10)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name

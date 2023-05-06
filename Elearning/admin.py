@@ -9,6 +9,13 @@ admin.site.register(AboutImage)
 admin.site.register(Feature)
 admin.site.register(Categorie)
 admin.site.register(Expert)
+admin.site.register(Testimonial)
+admin.site.register(Footcontact)
+admin.site.register(Footgallerie)
+admin.site.register(Newsletter)
+admin.site.register(Register)
+
+
 
 
 class CourseAdmin(admin.ModelAdmin):
